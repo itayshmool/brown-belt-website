@@ -16,7 +16,7 @@ export default function Home() {
       p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.owners.some((o) =>
-        o.toLowerCase().includes(searchQuery.toLowerCase())
+        o.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     return matchesCategory && matchesSearch;
   });
@@ -50,7 +50,7 @@ export default function Home() {
             </span>
             <span className="flex items-center gap-2">
               <span className="inline-block h-2 w-2 rounded-full bg-blue-400" />
-              {new Set(products.flatMap((p) => p.owners)).size} builders
+              {new Set(products.flatMap((p) => p.owners.map((o) => o.github))).size} builders
             </span>
             <span className="flex items-center gap-2">
               <span className="inline-block h-2 w-2 rounded-full bg-purple-400" />

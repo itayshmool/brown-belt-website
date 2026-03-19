@@ -1,9 +1,15 @@
 export type Category = "CLI Tool" | "Web App" | "Desktop App" | "IDE Extension" | "AI Skill";
 
+export interface Owner {
+  name: string;
+  github: string;
+  avatar: string;
+}
+
 export interface Product {
   slug: string;
   name: string;
-  owners: string[];
+  owners: Owner[];
   description: string;
   category: Category;
   platform: string;
@@ -17,11 +23,31 @@ export interface Product {
   howToUse: string;
 }
 
+const owner = (name: string, github: string): Owner => ({
+  name,
+  github,
+  avatar: `https://github.com/${github}.png`,
+});
+
+const OWNERS = {
+  saar: owner("Saar Shechter", "saarshe"),
+  ron: owner("Ron Buchnic", "RonBuchnic"),
+  yarden: owner("Yarden Ezra", "yardenez"),
+  shay: owner("Shay Kovach", "shayko1"),
+  dolev: owner("Dolev Akons", "dolevak"),
+  netanel: owner("Netanel Goodman", "netanelgowix"),
+  mila: owner("Mila Kogan", "milak18"),
+  idan: owner("Idan Rachmanov", "idanrac"),
+  roi: owner("Roi Ashkenazi", "roia7"),
+  israel: owner("Israel Zablianov", "IsraelZablianovWix"),
+  roy: owner("Roy Shlain", "royshlain1"),
+} as const;
+
 export const products: Product[] = [
   {
     slug: "claude-code-statusline",
     name: "claude-code-statusline",
-    owners: ["Saar Shechter"],
+    owners: [OWNERS.saar],
     description: "Customizable terminal status line for Claude Code with real-time session info.",
     category: "CLI Tool",
     platform: "Terminal",
@@ -50,7 +76,7 @@ claude-code-statusline setup`,
   {
     slug: "wix-skills",
     name: "@wix/skills",
-    owners: ["Saar Shechter", "Ron Buchnic", "Yarden Ezra"],
+    owners: [OWNERS.saar, OWNERS.ron, OWNERS.yarden],
     description: "CLI for discovering and installing AI skills into Cursor and Claude Code.",
     category: "CLI Tool",
     platform: "Terminal",
@@ -76,7 +102,7 @@ claude-code-statusline setup`,
   {
     slug: "ps-ux-review",
     name: "ps-ux-review",
-    owners: ["Roy Shlain"],
+    owners: [OWNERS.roy],
     description: "AI skill that orchestrates multi-dimensional UX reviews with actionable findings.",
     category: "AI Skill",
     platform: "Cursor / Claude Code",
@@ -103,7 +129,7 @@ claude-code-statusline setup`,
   {
     slug: "abtestor",
     name: "ABtestor",
-    owners: ["Dolev Akons"],
+    owners: [OWNERS.dolev],
     description: "A/B Test Management Platform with live KPI data and knowledge base.",
     category: "Web App",
     platform: "bo.wix.com",
@@ -129,7 +155,7 @@ Log in with Wix SSO credentials`,
   {
     slug: "zik",
     name: "Zik",
-    owners: ["Netanel Goodman"],
+    owners: [OWNERS.netanel],
     description: "Billing error monitoring dashboard with AI-powered anomaly analysis.",
     category: "Web App",
     platform: "bo.wix.com",
@@ -155,7 +181,7 @@ Log in with Wix SSO credentials`,
   {
     slug: "premium-qa-status",
     name: "Premium QA Status",
-    owners: ["Mila Kogan"],
+    owners: [OWNERS.mila],
     description: "Weekly QA status dashboard covering Premium team\u2019s test coverage across all domains.",
     category: "Web App",
     platform: "wix-bo.com",
@@ -181,7 +207,7 @@ Log in with Wix SSO`,
   {
     slug: "soxyai",
     name: "SoxyAI",
-    owners: ["Idan Rachmanov"],
+    owners: [OWNERS.idan],
     description: "SOX-compliance data export tool that automates audit trails, checksums, and reports.",
     category: "Desktop App",
     platform: "macOS / Windows",
@@ -208,7 +234,7 @@ python main.py --gui`,
   {
     slug: "unisearch",
     name: "UniSearch",
-    owners: ["Roi Ashkenazi"],
+    owners: [OWNERS.roi],
     description: "Federated search across GitHub, Slack, and Jira from a single search bar.",
     category: "Web App",
     platform: "bo.wix.com",
@@ -234,7 +260,7 @@ Connect your GitHub, Slack, and Jira accounts via OAuth`,
   {
     slug: "devdock",
     name: "devdock",
-    owners: ["Shay Kovach"],
+    owners: [OWNERS.shay],
     description: "Local project command center for macOS with embedded Claude terminal sessions.",
     category: "Desktop App",
     platform: "macOS",
@@ -261,7 +287,7 @@ cd devdock && npm install && npm run dev`,
   {
     slug: "ironscale",
     name: "IronScale",
-    owners: ["Israel Zablianov"],
+    owners: [OWNERS.israel],
     description: "VS Code/Cursor extension for Scala+Java development in Wix\u2019s Bazel monorepo.",
     category: "IDE Extension",
     platform: "VS Code / Cursor",
@@ -290,7 +316,7 @@ The onboarding wizard guides initial setup`,
   {
     slug: "moltbook",
     name: "Moltbook",
-    owners: ["Israel Zablianov"],
+    owners: [OWNERS.israel],
     description: "Social Network for AI Agents \u2014 agents post, comment, upvote, and debate.",
     category: "Web App",
     platform: "bo.wix.com + npm",
@@ -317,7 +343,7 @@ moltbook post "Hello from my agent!"`,
   {
     slug: "sentry-health",
     name: "Sentry Health",
-    owners: ["Shay Kovach"],
+    owners: [OWNERS.shay],
     description: "Comprehensive Sentry health dashboard with KPIs, trends, replays, and alerts.",
     category: "Web App",
     platform: "wix-bo.com",

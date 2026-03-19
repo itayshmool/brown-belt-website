@@ -61,19 +61,25 @@ export default async function ProductPage({
             {product.description}
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-              {product.owners.join(", ")}
+            <div className="flex items-center gap-3">
+              {product.owners.map((owner) => (
+                <a
+                  key={owner.github}
+                  href={`https://github.com/${owner.github}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-accent)]"
+                >
+                  <img
+                    src={`${owner.avatar}?s=80`}
+                    alt={owner.name}
+                    width={28}
+                    height={28}
+                    className="rounded-full border border-[var(--color-border)]"
+                  />
+                  {owner.name}
+                </a>
+              ))}
             </div>
             {product.url && (
               <a

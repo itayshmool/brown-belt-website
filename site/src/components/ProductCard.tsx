@@ -25,19 +25,22 @@ export function ProductCard({ product }: { product: Product }) {
         {product.description}
       </p>
 
-      <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-          <circle cx="12" cy="7" r="4" />
-        </svg>
-        {product.owners.join(", ")}
+      <div className="flex items-center gap-2">
+        <div className="flex -space-x-2">
+          {product.owners.map((owner) => (
+            <img
+              key={owner.github}
+              src={`${owner.avatar}?s=64`}
+              alt={owner.name}
+              width={24}
+              height={24}
+              className="rounded-full border-2 border-[var(--color-surface-raised)]"
+            />
+          ))}
+        </div>
+        <span className="text-xs text-[var(--color-text-muted)]">
+          {product.owners.map((o) => o.name).join(", ")}
+        </span>
       </div>
     </Link>
   );
