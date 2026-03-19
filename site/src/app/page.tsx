@@ -26,36 +26,45 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-[var(--color-border)] px-6 py-20 sm:py-28">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/5 via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-5xl">
-          <div className="mb-4 inline-block rounded-full border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 px-4 py-1.5 text-sm font-medium text-[var(--color-accent)]">
-            Premium Team
+        <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-10 lg:flex-row lg:gap-16">
+          <div className="flex-1">
+            <div className="mb-4 inline-block rounded-full border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 px-4 py-1.5 text-sm font-medium text-[var(--color-accent)]">
+              Premium Team
+            </div>
+            <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight sm:text-6xl">
+              Brown Belt{" "}
+              <span className="text-[var(--color-accent)]">Projects</span>
+            </h1>
+            <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)]">
+              A{" "}
+              <span className="font-semibold text-[var(--color-accent)]">
+                secondary, self-learned
+              </span>{" "}
+              technical passion that lets you move things without waiting for
+              others. These are the tools and products our team built outside
+              their primary expertise.
+            </p>
+            <div className="mt-8 flex items-center gap-6 text-sm text-[var(--color-text-muted)]">
+              <span className="flex items-center gap-2">
+                <span className="inline-block h-2 w-2 rounded-full bg-[var(--color-accent)]" />
+                {products.length} projects
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="inline-block h-2 w-2 rounded-full bg-blue-400" />
+                {new Set(products.flatMap((p) => p.owners.map((o) => o.github))).size} builders
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="inline-block h-2 w-2 rounded-full bg-purple-400" />
+                {new Set(products.map((p) => p.category)).size} categories
+              </span>
+            </div>
           </div>
-          <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight sm:text-6xl">
-            Brown Belt{" "}
-            <span className="text-[var(--color-accent)]">Projects</span>
-          </h1>
-          <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)]">
-            A{" "}
-            <span className="font-semibold text-[var(--color-accent)]">
-              secondary, self-learned
-            </span>{" "}
-            technical passion that lets you move things without waiting for
-            others. These are the tools and products our team built outside
-            their primary expertise.
-          </p>
-          <div className="mt-8 flex items-center gap-6 text-sm text-[var(--color-text-muted)]">
-            <span className="flex items-center gap-2">
-              <span className="inline-block h-2 w-2 rounded-full bg-[var(--color-accent)]" />
-              {products.length} projects
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="inline-block h-2 w-2 rounded-full bg-blue-400" />
-              {new Set(products.flatMap((p) => p.owners.map((o) => o.github))).size} builders
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="inline-block h-2 w-2 rounded-full bg-purple-400" />
-              {new Set(products.map((p) => p.category)).size} categories
-            </span>
+          <div className="w-64 shrink-0 sm:w-72 lg:w-80">
+            <img
+              src="/brown-belt-website/hero.png"
+              alt="Brown belt and black belt martial artists bowing"
+              className="w-full rounded-2xl border border-[var(--color-border)] shadow-2xl"
+            />
           </div>
         </div>
       </section>
