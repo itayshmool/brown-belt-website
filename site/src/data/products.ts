@@ -48,7 +48,7 @@ export const products: Product[] = [
     slug: "claude-code-statusline",
     name: "claude-code-statusline",
     owners: [OWNERS.saar],
-    description: "A customizable status line for Claude Code.\nShows model, context usage, tokens, cost, git status, and more - right in your terminal.\nWritten in Go.",
+    description: "A customizable status line for Claude Code. Shows model, context usage, tokens, cost, git status, and more - right in your terminal. Written in Go.",
     category: "CLI Tool",
     platform: "Terminal",
     repo: "saarshe/claude-code-statusline",
