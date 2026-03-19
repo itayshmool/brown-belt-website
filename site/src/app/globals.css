@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #DEFF9A;
+  --color-accent-dim: #b8d97a;
+  --color-surface: #141414;
+  --color-surface-raised: #1e1e1e;
+  --color-surface-hover: #2a2a2a;
+  --color-border: #333333;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #D1D5DB;
+  --color-text-muted: #9CA3AF;
+  --font-heading: "Urbanist", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
+  }
+}
