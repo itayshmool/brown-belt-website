@@ -46,15 +46,15 @@ export default function Home() {
             </p>
             <div className="mt-8 flex items-center gap-8 text-[var(--color-text-muted)]">
               <div className="flex flex-col">
-                <span className="text-5xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-6xl">{products.length}</span>
+                <span className="text-5xl font-bold tracking-tight text-[var(--color-accent)] sm:text-6xl">{products.length}</span>
                 <span className="text-sm">projects</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-5xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-6xl">{new Set(products.flatMap((p) => p.owners.map((o) => o.github))).size}</span>
+                <span className="text-5xl font-bold tracking-tight text-blue-400 sm:text-6xl">{new Set(products.flatMap((p) => p.owners.map((o) => o.github))).size}</span>
                 <span className="text-sm">builders</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-5xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-6xl">{new Set(products.map((p) => p.category)).size}</span>
+                <span className="text-5xl font-bold tracking-tight text-purple-400 sm:text-6xl">{new Set(products.map((p) => p.category)).size}</span>
                 <span className="text-sm">categories</span>
               </div>
             </div>
