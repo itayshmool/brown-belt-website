@@ -44,19 +44,19 @@ export default function Home() {
               others. These are the tools and products our team built outside
               their primary expertise.
             </p>
-            <div className="mt-8 flex items-center gap-6 text-sm text-[var(--color-text-muted)]">
-              <span className="flex items-center gap-2">
-                <span className="inline-block h-2 w-2 rounded-full bg-[var(--color-accent)]" />
-                {products.length} projects
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="inline-block h-2 w-2 rounded-full bg-blue-400" />
-                {new Set(products.flatMap((p) => p.owners.map((o) => o.github))).size} builders
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="inline-block h-2 w-2 rounded-full bg-purple-400" />
-                {new Set(products.map((p) => p.category)).size} categories
-              </span>
+            <div className="mt-8 flex items-center gap-8 text-[var(--color-text-muted)]">
+              <div className="flex flex-col">
+                <span className="text-5xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-6xl">{products.length}</span>
+                <span className="text-sm">projects</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-5xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-6xl">{new Set(products.flatMap((p) => p.owners.map((o) => o.github))).size}</span>
+                <span className="text-sm">builders</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-5xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-6xl">{new Set(products.map((p) => p.category)).size}</span>
+                <span className="text-sm">categories</span>
+              </div>
             </div>
           </div>
           <div className="w-64 shrink-0 sm:w-72 lg:w-80">
