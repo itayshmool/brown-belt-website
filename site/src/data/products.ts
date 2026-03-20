@@ -41,6 +41,8 @@ const OWNERS = {
   roi: owner("Roi Ashkenazi", "roia7"),
   israel: owner("Israel Zablianov", "IsraelZablianovWix"),
   roy: owner("Roy Shlain", "royshlain1"),
+  nir: owner("Nir Sher", "Nir-Sher"),
+  jacobo: owner("Jacobo Levy", "Jacobolevy"),
 } as const;
 
 export const products: Product[] = [
@@ -368,5 +370,85 @@ moltbook post "Hello from my agent!"`,
     howToUse: `Navigate to https://wix-bo.com/sentry-health
 Log in with Wix SSO
 Select a Sentry project from the picker`,
+  },
+  {
+    slug: "cdd-copilot",
+    name: "CDD Copilot + Contribution MCP",
+    owners: [OWNERS.nir],
+    description:
+      "AI-powered CDD assistant and MCP server that lets anyone in the org contribute to premium-billing docs.",
+    category: "Web App",
+    platform: "bo.wix.com",
+    repo: "wix-private/premium-platform-cdd-copilot",
+    repoPublic: false,
+    url: "https://bo.wix.com/premium-platform-cdd-copilot/",
+    techStack: [
+      "React 18",
+      "Vite",
+      "Wix Design System",
+      "Wix Serverless",
+      "MCP SDK",
+      "Wix Prompt Hub",
+      "TypeScript",
+    ],
+    whatItIs:
+      "An AI-powered assistant for Premium Billing CDD documentation, paired with an MCP server that exposes the CDD as a tool for any AI coding agent. It has a chat-like backoffice UI for asking questions about SBS/BASS architecture and generating rollout plans, project summaries, and design reviews. The MCP server lets developers outside the domain operate smoothly by connecting their IDE agents directly to the CDD.",
+    problem:
+      "CDD documentation is complex and domain-specific — people outside the Premium Billing team can't easily navigate it. When a task requires cross-team contribution, lack of context becomes a blocker. This tool unblocks contributors by giving them an AI assistant and an MCP endpoint that any coding agent can query, removing the knowledge barrier entirely.",
+    features: [
+      "Chat UI for asking questions about SBS/BASS architecture and migration status",
+      "AI document generation: rollout plans, project summaries, design reviews, milestone docs",
+      "MCP server with Streamable HTTP transport for IDE agent integration",
+      "Intent detection via Wix Prompt Hub",
+      "GitHub API integration querying premium-billing-cdd repo",
+      "Animated placeholder suggestions in chat interface",
+    ],
+    howToUse: `Navigate to https://bo.wix.com/premium-platform-cdd-copilot/
+Log in with Wix SSO
+
+For MCP integration, add to your IDE config:
+{
+  "mcpServers": {
+    "cdd": {
+      "type": "streamableHttp",
+      "url": "https://www.wix.com/premium-platform-cdd-mcp/mcp"
+    }
+  }
+}`,
+  },
+  {
+    slug: "localization-skills",
+    name: "Localization Skills",
+    owners: [OWNERS.jacobo],
+    description:
+      "A set of AI skills to speed up localization — create keys, tag Smartling strings, and upload Figma screenshots to Babel.",
+    category: "AI Skill",
+    platform: "Cursor / Claude Code",
+    repo: "Jacobolevy/skills-repo",
+    repoPublic: false,
+    url: null,
+    techStack: [
+      "AI Skill (Markdown prompt)",
+      "Smartling MCP",
+      "Figma MCP",
+      "Babel API",
+    ],
+    whatItIs:
+      "A collection of three AI skills that automate localization workflows for Wix projects. The localization-keys-creator generates, reviews, and fixes i18n keys following Wix naming conventions. The smartling-tag-manager bulk-tags translation strings in Smartling via MCP. The babel-figma-screenshots maps Babel keys to Figma design sections and uploads screenshots as visual context for translators.",
+    problem:
+      "Localization is manual, repetitive, and error-prone. Creating translation keys requires following strict naming conventions, tagging strings in Smartling involves tedious one-by-one lookups, and attaching Figma screenshots to Babel keys means switching between tools constantly. These skills automate all three workflows, turning hours of work into minutes.",
+    features: [
+      "Create mode: generate new translation keys following breadcrumb naming (feature.page.element)",
+      "Review mode: check existing keys against Wix localization rules",
+      "Fix mode: scan code for localization violations and propose fixes",
+      "Smartling bulk tagging: exact-then-partial matching with deduplication, batches of 1000",
+      "Babel-Figma screenshot workflow: triage keys, match via annotations, batch export and upload",
+      "Multi-project aware: handles keys across different Babel projects",
+    ],
+    howToUse: `npx @wix/skills
+# Search for "localization" and install the skills
+
+Or clone directly:
+git clone https://github.com/Jacobolevy/skills-repo`,
   },
 ];

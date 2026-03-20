@@ -28,7 +28,7 @@ The website should feel like a **hall of projects**, not a corporate wiki. It sh
 
 **Content:**
 - Hero section with the Brown Belt concept (brief — 1-2 sentences)
-- Product grid/cards showing all 12 products
+- Product grid/cards showing all 14 products
 - Each card displays:
   - Product name
   - Owner name(s)
@@ -112,7 +112,7 @@ The website should feel like a **hall of projects**, not a corporate wiki. It sh
 
 ## 5. Data Source
 
-All product data comes from the knowledge base (`knowledge-base.md`), which was compiled from GitHub repo investigation of 12 products listed in the "AI cool products" Google Drive spreadsheet.
+All product data comes from the knowledge base (`knowledge-base.md`), which was compiled from GitHub repo investigation of 14 products listed in the "AI cool products" Google Drive spreadsheet.
 
 ### Product Data Schema
 
@@ -134,7 +134,7 @@ All product data comes from the knowledge base (`knowledge-base.md`), which was 
 }
 ```
 
-### Products (12)
+### Products (14)
 
 | # | Name | Category |
 |---|------|----------|
@@ -150,6 +150,8 @@ All product data comes from the knowledge base (`knowledge-base.md`), which was 
 | 10 | IronScale | IDE Extension |
 | 11 | Moltbook | Web App |
 | 12 | Sentry Health | Web App |
+| 13 | CDD Copilot + Contribution MCP | Web App |
+| 14 | Localization Skills | AI Skill |
 
 ---
 
@@ -163,7 +165,7 @@ All product data comes from the knowledge base (`knowledge-base.md`), which was 
 - **Code highlighting:** Shiki or Prism for install command snippets
 
 ### Rationale
-- 12 products with static content — no need for a CMS or database
+- 14 products with static content — no need for a CMS or database
 - Static site = fast, cheap, zero maintenance
 - MDX allows rich content (code blocks, custom components) per product page
 
@@ -185,6 +187,8 @@ All product data comes from the knowledge base (`knowledge-base.md`), which was 
 /products/ironscale
 /products/moltbook
 /products/sentry-health
+/products/cdd-copilot
+/products/localization-skills
 ```
 
 ---
