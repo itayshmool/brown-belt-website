@@ -60,11 +60,13 @@ export default function Home() {
             </div>
           </div>
           <div className="w-64 shrink-0 sm:w-72 lg:w-80">
-            <img
-              src="/brown-belt-website/hero.png"
-              alt="Brown belt and black belt martial artists bowing"
-              className="w-full rounded-2xl border border-[var(--color-border)] shadow-2xl"
-            />
+            <div className="rounded-2xl border border-[var(--color-accent)]/20 bg-[var(--color-surface-raised)] p-3 shadow-[0_0_40px_rgba(222,255,154,0.08)]">
+              <img
+                src="/brown-belt-website/hero.png"
+                alt="Brown belt and black belt martial artists bowing"
+                className="w-full rounded-xl"
+              />
+            </div>
           </div>
         </div>
       </section>
