@@ -50,7 +50,7 @@ export const products: Product[] = [
     slug: "claude-code-statusline",
     name: "claude-code-statusline",
     owners: [OWNERS.saar],
-    description: "Customizable terminal status line for Claude Code with real-time session info.",
+    description: "A customizable status line for Claude Code. Shows model, context usage, tokens, cost, git status, and more - right in your terminal. Written in Go.",
     category: "CLI Tool",
     platform: "Terminal",
     repo: "saarshe/claude-code-statusline",
@@ -71,9 +71,8 @@ export const products: Product[] = [
       "Interactive setup wizard",
       "Auto-start on terminal launch via shell RC integration",
     ],
-    howToUse: `brew tap saarshe/claude-code-statusline
-brew install claude-code-statusline
-claude-code-statusline setup`,
+    howToUse: `brew install claude-code-statusline
+claude-code-statusline init`,
   },
   {
     slug: "wix-skills",
@@ -91,13 +90,12 @@ claude-code-statusline setup`,
     problem:
       "AI skills for code editors are scattered across multiple repositories and teams. Developers waste time finding, downloading, and manually configuring skills. This CLI provides a unified marketplace-like experience \u2014 search, preview, and install skills with a single command.",
     features: [
-      "Multi-target installation (Cursor rules, Claude Code commands)",
-      "Multiple skill sources: Premium AI Incubator, Superpowers, Octocode, Vercel, Daymade",
-      "AI-powered semantic search",
-      "Fuzzy search for skill names",
-      "Interactive TUI with real-time filtering",
-      "Auto-updates via npm",
-      "Slash command support for Claude Code",
+      "Multi-target: Install to Cursor, Claude, or both simultaneously",
+      "Multiple sources: Built-in support for Premium, Superpowers, Octocode, Vercel, and Daymade skill repos",
+      "Custom sources: Add any GitHub repo as a skill source",
+      "Version pinning: Lock skills to prevent unwanted updates",
+      "Auto-updates: Optional background updates via launchd (macOS), systemd (Linux), or Task Scheduler (Windows)",
+      "Slash commands: Auto-generates /command shortcuts for installed skills",
     ],
     howToUse: `npx @wix/skills`,
   },
